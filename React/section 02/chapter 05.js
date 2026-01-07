@@ -10,3 +10,10 @@ let o2 = o1;
 // 깊은 복사 : 새로운 객체를 생성하면서 프로퍼티만 따로 복사함
 let o3 = { name: "한태영" };
 let o4 = { ...o3 };
+
+// 얕은 비교
+o1 === o2;
+
+// 깊은 비교
+// JSON.stringify() : 자바스크립트 내장 함수 -> 객체를 문자열로 변환하는 기능
+JSON.stringify(o1) === JSON.stringify(o2);

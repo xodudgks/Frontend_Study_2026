@@ -28,7 +28,7 @@ const p = add10(0)
     console.log(result);
   })
   .catch((error) => {
-    console.log(errpr);
+    console.log(error);
   });
 
 // then 메서드

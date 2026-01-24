@@ -28,18 +28,34 @@
 
 // export default App;
 
-// 5.6 이후 실습 코드
-import "./App.css";
-import { useState } from "react";
+// 5.6, 5.7 실습 코드
 
-import Bulb from "./components/Bulb.jsx";
-import Counter from "./components/Counter.jsx";
+// import "./App.css";
+// import { useState } from "react";
+
+// import Bulb from "./components/Bulb.jsx";
+// import Counter from "./components/Counter.jsx";
+
+// function App() {
+//   return (
+//     <>
+//       <Bulb />
+//       <Counter />
+//     </>
+//   );
+// }
+
+// export default App;
+
+// 5.8 이후 실습 코드
+
+import "./App.css";
+import Register from "./components/Register";
 
 function App() {
   return (
     <>
-      <Bulb />
-      <Counter />
+      <Register />
     </>
   );
 }

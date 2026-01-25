@@ -1,0 +1,121 @@
+/* 폰트 가져오기 (구글 웹폰트 - 귀여운 느낌의 'Jua') */
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+/* 전체 배경 및 기본 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  /* 배경: 아주 연한 크림색 */
+  background-color: #fffdf6;
+  /* 폰트 적용 */
+  font-family: "Jua", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #5d4037; /* 기본 글씨색: 부드러운 갈색 */
+}
+
+/* 메인 앱 컨테이너 */
+.App {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* 섹션 간격 넓게 */
+}
+
+/* 제목 스타일 */
+.App h1 {
+  text-align: center;
+  /* 제목 색상: 파스텔 핑크 */
+  color: #ffabab;
+  font-size: 42px;
+  margin-bottom: 10px;
+  /* 텍스트에 부드러운 그림자 추가 */
+  text-shadow:
+    2px 2px 0px #fff,
+    4px 4px 0px #e6e6e6;
+}
+
+/* 뷰어와 컨트롤러를 감싸는 섹션 공통 스타일 */
+section {
+  background-color: #ffffff;
+  /* 아주 둥근 모서리 */
+  border-radius: 30px;
+  padding: 40px 30px;
+  text-align: center;
+  /* 몽글몽글한 파스텔톤 그림자 */
+  box-shadow:
+    0 10px 30px rgba(255, 171, 171, 0.2),
+    0 4px 10px rgba(168, 216, 234, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* 섹션에 마우스 올리면 살짝 떠오름 */
+section:hover {
+  transform: translateY(-5px);
+}
+
+/* Viewer 컴포넌트 내부 스타일 */
+/* "현재 카운트 :" 텍스트 */
+section > div > div:first-child {
+  font-size: 22px;
+  color: #aec6cf; /* 파스텔 블루 그레이 */
+  margin-bottom: 15px;
+}
+
+/* 카운트 숫자 */
+section h1 {
+  font-size: 80px;
+  /* 카운트 숫자 색상: 따뜻한 노랑/오렌지 */
+  color: #ffd3b6;
+  margin: 0;
+  /* 글자에 테두리를 줘서 팝한 느낌 추가 */
+  -webkit-text-stroke: 2px #ffb7c5;
+  text-shadow:
+    3px 3px 0px #fff,
+    5px 5px 0px rgba(255, 183, 197, 0.4);
+}
+
+/* Controller 컴포넌트 버튼 컨테이너 */
+section > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* 버튼 스타일 */
+button {
+  border: none;
+  /* 버튼 배경: 파스텔 민트 */
+  background-color: #c7f0db;
+  /* 버튼 글씨: 진한 숲 색 */
+  color: #1b5e20;
+  padding: 15px 24px;
+  /* 알약 모양 버튼 */
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: "Jua", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  flex: 1 0 30%; /* 버튼 너비 조정 */
+}
+
+/* 버튼 호버 효과 */
+button:hover {
+  /* 호버 시 조금 더 진한 파스텔 민트 */
+  background-color: #a5d6a7;
+  transform: scale(1.05); /* 살짝 커짐 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 버튼 클릭 효과 */
+button:active {
+  background-color: #81c784;
+  transform: scale(0.95); /* 눌리는 느낌 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

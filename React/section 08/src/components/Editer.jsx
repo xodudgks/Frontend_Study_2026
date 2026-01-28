@@ -20,7 +20,7 @@ const Editer = ({ onCreate }) => {
       contentRef.current.focus();
       return;
     }
-    onCreate();
+    onCreate(content);
     setContent("");
   };
 

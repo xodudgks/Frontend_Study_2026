@@ -53,11 +53,16 @@ function App() {
       }),
     );
   };
+
+  const onDelete = (targetID) => {
+    setTodos(todos.filter((todo) => todo.id !== targetID));
+  };
+
   return (
     <div className="App">
       <Header />
       <Editer onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} />
+      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }

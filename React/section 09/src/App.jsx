@@ -1,9 +1,9 @@
 import "./App.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useReducer } from "react";
 import Editer from "./components/Editer";
 import Header from "./components/Header";
 import List from "./components/List";
-import Exam from "./components/Exam";
+// import Exam from "./components/Exam";
 
 const mockData = [
   {
@@ -26,45 +26,57 @@ const mockData = [
   },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "CREATE":
+      return [action.data, ...state];
+    case "UPDATE":
+      return state.map((item) =>
+        item.id === action.targetId ? { ...item, isDone: !item.isDone } : item,
+      );
+    case "DELETE":
+      return state.filter((item) => item.id !== action.targetId);
+    default:
+      return state;
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState(mockData);
+  const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 
   const onCreate = (content) => {
-    const newTodo = {
-      id: idRef.current++,
-      isDone: false,
-      content: content,
-      date: new Date().getTime(),
-    };
-
-    setTodos([newTodo, ...todos]);
+    dispatch({
+      type: "CREATE",
+      data: {
+        id: idRef.current++,
+        isDone: false,
+        content: content,
+        data: new Date().getTime(),
+      },
+    });
   };
 
-  const onUpdate = (targetID) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === targetID) {
-          return {
-            ...todo,
-            isDone: !todo.isDone,
-          };
-        }
-        return todo;
-      }),
-    );
+  const onUpdate = (targetId) => {
+    dispatch({
+      type: "UPDATE",
+      targetId: targetId,
+    });
   };
 
-  const onDelete = (targetID) => {
-    setTodos(todos.filter((todo) => todo.id !== targetID));
+  const onDelete = (targetId) => {
+    dispatch({
+      type: "DELETE",
+      targetId: targetId,
+    });
   };
 
   return (
     <div className="App">
-      <Exam />
-      {/* <Header />
+      {/* <Exam /> */}
+      <Header />
       <Editer onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} /> */}
+      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }

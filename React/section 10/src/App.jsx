@@ -52,7 +52,7 @@ function App() {
         id: idRef.current++,
         isDone: false,
         content: content,
-        data: new Date().getTime(),
+        date: new Date().getTime(),
       },
     });
   };

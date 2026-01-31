@@ -21,6 +21,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
   const filteredTodos = getFilteredData();
 
   const { totalCount, doneCount, notDoneCount } = useMemo(() => {
+    console.log("데이터 확인");
     const totalCount = todos.length;
     const doneCount = todos.filter((todo) => todo.isDone).length;
     const notDoneCount = totalCount - doneCount;

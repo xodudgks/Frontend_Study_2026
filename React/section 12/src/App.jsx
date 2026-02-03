@@ -27,7 +27,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, mockData);
 
   return (
     <>

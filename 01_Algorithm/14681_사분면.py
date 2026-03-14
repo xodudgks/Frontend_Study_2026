@@ -9,4 +9,3 @@ elif input_x < 0 and input_y < 0:
     print(3)
 else:
     print(4)
-    
